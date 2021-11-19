@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  frontend:
+    image: frontend
+    build: ./front/
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - swat-app
+    volumes:
+      - ./front/:/usr/src/app
+  backend:
+    image: backend
+    build: ./back/
+    ports:
+      - "5000:5000"
+    networks:
+      - swat-app
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:4.2-bionic
+    ports:
+      - "7000:7000"
+    networks:
+      - swat-app
+    volumes:
+      - mongo-data:/data/db
+networks:
+  swat-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
