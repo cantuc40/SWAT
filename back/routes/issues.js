@@ -22,6 +22,7 @@ router.get('/:id', (req,res) => {
 //Add new issue to DB
 router.post('/add', (req,res) =>{
     const name = req.body.name;
+    const ticket_num = Math.floor((Math.random() * 10000) + 1);
     const project_name = req.body.project_name;
     const file_location = req.body.file_location;
     const filename = req.body.filename;
@@ -29,9 +30,11 @@ router.post('/add', (req,res) =>{
     const col = req.body.col;
     const status = req.body.status;
     const description = req.body.description;
+    
 
     const newIssue = new Issue({
         name,
+        ticket_num,
         project_name,
         file_location,
         filename,

@@ -2,10 +2,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 //Issue Schema
 const issueSchema = new Schema({
     name: String,
+    ticket_num: Number,
     project_name: String,
     file_location: String,
     filename: String,

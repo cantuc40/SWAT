@@ -1,22 +1,28 @@
-import logo from './logo.svg';
+import {Routes, Route} from 'react-router-dom';
+
+import NavigationBar from './Components/NavigationBar/NavigationBar';
+import Footer from './Components/Footer/Footer';
+import AddIssue from './Components/AddIssue/AddIssue';
+import UpdateIssue from './Components/UpdateIssue/UpdateIssue';
+import ViewIssue from './Components/ViewIssue/ViewIssue';
+
+import Home from './Pages/Home/Home';
+import Archives from './Pages/Archives/Archives';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavigationBar/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path='/archives' element={<Archives/>}/>
+        <Route path='/add_issue' element={<AddIssue/>}/>
+        <Route path='/update_issue' element={<UpdateIssue/>}/>
+        <Route path='/view_issue' element={<ViewIssue/>}/>
+      </Routes>
+      <Footer/>    
     </div>
   );
 }

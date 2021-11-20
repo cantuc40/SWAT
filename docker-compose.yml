@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   frontend:
-    image: frontend
+    image: swat-front
     build: ./front/
     stdin_open: true
     ports:
@@ -11,7 +11,7 @@ services:
     volumes:
       - ./front/:/usr/src/app
   backend:
-    image: backend
+    image: swat-back
     build: ./back/
     ports:
       - "5000:5000"
