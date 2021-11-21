@@ -25,17 +25,12 @@ const Issue = props => (
       <td>{props.issue.ticket_num}</td>
       <td>{props.issue.name}</td>
       <td>{props.issue.project_name}</td>
-      <td>{props.issue._id}</td>
-      <td>
-        <Link to={"/issues/"+props.issue._id} element={<ViewIssue/>}>
-            <button type="button" className="btn btn-primary">Click</button>
-        </Link>
-      </td>
-      <td>
-            <Link to={'/update_issue/'+props.issue._id}>
-                <button type="button" className="btn btn-primary">Click</button>
-            </Link>
-        </td>
+      <td>{props.issue.filename}</td>
+      <td>{props.issue.file_location}</td>
+      <td>{props.issue.row}</td>
+      <td>{props.issue.col}</td>
+      <td>{props.issue.status}</td>
+      <td>{props.issue.description}</td>
     </tr>
   )
 
@@ -91,10 +86,14 @@ export default class Home extends Component {
                     <thead>
                         <tr>
                             <th scope="col">id</th>
-                            <th scope="col">Name</th>
+                            <th scope="col">Issue Name</th>
                             <th scope="col">Project</th>
-                            <th scope="col">More Info</th>
-                            <th scope="col">Update</th>
+                            <th scope="col">File Name</th>
+                            <th scope="col">Directory</th>
+                            <th scope="col">Row</th>
+                            <th scope="col">Col</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Description</th>
                         </tr>
                     </thead>
                     <tbody>
