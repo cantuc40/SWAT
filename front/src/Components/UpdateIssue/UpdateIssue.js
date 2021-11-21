@@ -6,7 +6,7 @@ export default class UpdateIssue extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            archived_issues: []
+            name: props.name                    
         }
     }
 
@@ -22,7 +22,7 @@ export default class UpdateIssue extends Component {
     render() {
         return (
             <div>
-                Update Issue Component
+                {this.state.name}
             </div>
         );
 

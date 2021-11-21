@@ -52,7 +52,7 @@ router.post('/add', (req,res) =>{
 });
 
 //Update Issue
-router.put('/:id', (req,res) => {
+router.put('/update/:id', (req,res) => {
     Issue.findById(req.params.id)
     .then(issue => {
         issue.name = req.body.name;
@@ -73,7 +73,7 @@ router.put('/:id', (req,res) => {
 });
 
 //Delete Issue
-router.delete('/:id', (req,res) => {
+router.delete('/delete/:id', (req,res) => {
 
     Issue.findByIdAndDelete(req.params.id)
     .then(() => res.json("Issue deleted"))

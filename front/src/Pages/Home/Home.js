@@ -1,6 +1,55 @@
 import {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+//import UpdateIssue from '../../Components/UpdateIssue/UpdateIssue';
+import ViewIssue from '../../Components/ViewIssue/ViewIssue'
+
+/*
+const Issue = props => {
+    <tr className="table-active">
+        <td>{props.issue.ticket_num}</td>
+        <td>{props.issue.name}</td>
+        <td>{props.issue.project_name}</td>
+        <td>
+            <Link to={'/view_issue/'+props.issue._id}>
+                <button type="button" className="btn btn-primary ">Click</button>
+            </Link>
+        </td>
+        
+    </tr>
+};*/
+
+//Functional React Component
+const Issue = props => (
+    <tr className="table-active">
+      <td>{props.issue.ticket_num}</td>
+      <td>{props.issue.name}</td>
+      <td>{props.issue.project_name}</td>
+      <td>{props.issue._id}</td>
+      <td>
+        <Link to={"/issues/"+props.issue._id} element={<ViewIssue/>}>
+            <button type="button" className="btn btn-primary">Click</button>
+        </Link>
+      </td>
+      <td>
+            <Link to={'/update_issue/'+props.issue._id}>
+                <button type="button" className="btn btn-primary">Click</button>
+            </Link>
+        </td>
+    </tr>
+  )
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export default class Home extends Component {
@@ -23,14 +72,14 @@ export default class Home extends Component {
     }
 
 
-    IssueInfoonClick(){
 
-    }
 
-    UpdateInfoonClick(){
-
-    }
-
+    //Return all exercises from th mongodb
+    issueList() {
+        return this.state.issues.map(currentissue => {
+          return <Issue issue={currentissue} key={currentissue._id}/>;
+        })
+      }
 
 
 
@@ -49,25 +98,7 @@ export default class Home extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.issues.map((currentissue, key) => {
-                            return(
-                            <tr className="table-active" key={key}>
-                                <td>{currentissue.ticket_num}</td>
-                                <td>{currentissue.name}</td>
-                                <td>{currentissue.project_name}</td>
-                                <td>
-                                    <Link to='/view_issue'>
-                                        <button type="button" className="btn btn-primary">Click</button>
-                                    </Link>
-                                </td>
-                                <td>
-                                    <Link to='/update_issue'>
-                                        <button type="button" className="btn btn-primary">Click</button>
-                                    </Link>
-                                </td>
-                            </tr>
-                            )
-                        })}
+                        {this.issueList()}
                     </tbody>
                 </table>
             </div>       
