@@ -4,13 +4,9 @@
 
 SWAT is a web application built on a MERN stack that allows the user to manage and track various faults they find in their working projects. As of November 20 2021, the Project is currently in development.
 
-## Getting Started
+## Getting Started and Prerequisites
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-Before building SWAT, you'll need to download the following:  
+Before running SWAT, download the following:  
 
 * [Node.js](https://nodejs.org/en/)
 * [Docker](https://www.docker.com/)
@@ -18,44 +14,24 @@ Before building SWAT, you'll need to download the following:
 
 ### Installation
 
-Once you've installed node.js and Docker, just git clone the repository and make the file
+Once node.js and Docker are installed, git clone the repository and make the file
 
 ```
 git clone https://github.com/cantuc40/SWAT.git
 cd SWAT
 make build-swat
 ```
+Keep in mind that it will take a while for the images to build, so be patient.
 
-## Usage
 
-A few examples of useful commands and/or tasks.
-
-```
-$ First example
-$ Second example
-$ And keep this in mind
-```
-
-## Deployment
-
-Additional notes on how to deploy this on a live or release system. Explaining the most important branches, what pipelines they trigger and how to update the database (if anything special).
-
-### Server
-
-* Live:
-* Release:
-* Development:
 
 ### Branches
 
-* Master:
-* Feature:
-* Bugfix:
-* etc...
+* master:
+* frontend_dev:
 
-## Additional Documentation and Acknowledgments
+## Known Issues
 
-* Project folder on server:
-* Confluence link:
-* Asana board:
-* etc...
+The following issues are present in the project:
+
+* View issue, add issue and update issue components have yet to be started
