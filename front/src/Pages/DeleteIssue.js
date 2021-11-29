@@ -1,9 +1,9 @@
 import {Component} from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 
 
 
-export default class ViewIssue extends Component {
+export default class DeleteIssue extends Component {
 
     constructor(props) {
         super(props);
@@ -18,10 +18,11 @@ export default class ViewIssue extends Component {
             col: 0,
             status: "",
             description: "",
-            id: this.props.params._id
+            id: 0
         }
     }
 
+    /*
     //this.props.issue.params._id
     componentDidMount() {
         axios.get(`http://localhost:5000/issues/${this.state.id}`)
@@ -45,13 +46,13 @@ export default class ViewIssue extends Component {
 
 
 
-    }
+    } */
 
 
     render() {
         return (
             <div>
-                <h1>{this.state._id}</h1>
+                <h1>Delete</h1>
             </div>
         );
 

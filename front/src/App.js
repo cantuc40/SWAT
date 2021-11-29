@@ -1,13 +1,13 @@
 import {Routes, Route} from 'react-router-dom';
 
-import NavigationBar from './Components/NavigationBar/NavigationBar';
-import Footer from './Components/Footer/Footer';
-import AddIssue from './Components/AddIssue/AddIssue';
-import UpdateIssue from './Components/UpdateIssue/UpdateIssue';
-import ViewIssue from './Components/ViewIssue/ViewIssue';
+import NavigationBar from './Components/NavigationBar';
+import Footer from './Components/Footer';
+import AddIssue from './Pages/AddIssue';
+import UpdateIssue from './Pages/UpdateIssue';
+import DeleteIssue from './Pages/DeleteIssue';
 
-import Home from './Pages/Home/Home';
-import Archives from './Pages/Archives/Archives';
+import Home from './Pages/Home';
+import Archives from './Pages/Archives';
 
 
 
@@ -19,8 +19,8 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path='/archives' element={<Archives/>}/>
         <Route path='/add_issue' element={<AddIssue/>}/>
-        <Route path='/update_issue/:id' element={<UpdateIssue/>}/>
-        <Route path='/issues/:id' element={<ViewIssue/>}/>
+        <Route path='/update_issue' element={<UpdateIssue/>}/>
+        <Route path='/delete_issue' element={<DeleteIssue/>}/>
       </Routes>
       <Footer/>    
     </div>

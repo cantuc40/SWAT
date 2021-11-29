@@ -1,8 +1,8 @@
 import {Component} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 //import UpdateIssue from '../../Components/UpdateIssue/UpdateIssue';
-import ViewIssue from '../../Components/ViewIssue/ViewIssue'
+//import ViewIssue from './DeleteIssue'
 
 /*
 const Issue = props => {
