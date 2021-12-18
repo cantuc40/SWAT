@@ -1,4 +1,4 @@
-![SWAT](https://github.com/cantuc40/Project-Images/blob/master/SWAT.png)
+![SWAT](https://github.com/cantuc40/Project-Images/blob/master/SWAT_IMAGE.png)
 
 # SWAT
 
