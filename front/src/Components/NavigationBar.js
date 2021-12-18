@@ -43,13 +43,10 @@ export default class NavigationBar extends Component {
                             <Link to='/add_issue' className="nav-link">Add Issue</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to='/update_issue' className="nav-link">Update Issue</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/delete_issue' className="nav-link">Delete Issue</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link to='/archives' className="nav-link">Archives</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to='/archives' className="nav-link">Logout</Link>
                         </li>
                     </ul>
                 </div>
