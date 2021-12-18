@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import axios from 'axios';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 //import UpdateIssue from '../../Components/UpdateIssue/UpdateIssue';
 //import ViewIssue from './DeleteIssue'
 
@@ -19,6 +19,13 @@ const Issue = props => {
     </tr>
 };*/
 
+
+const mystyle = {
+    color: "red"
+};
+
+
+
 //Functional React Component
 const Issue = props => (
     <tr className="table-active">
@@ -29,8 +36,22 @@ const Issue = props => (
       <td>{props.issue.file_location}</td>
       <td>{props.issue.row}</td>
       <td>{props.issue.col}</td>
-      <td>{props.issue.status}</td>
+      <td style = {mystyle}>{props.issue.status}</td>
       <td>{props.issue.description}</td>
+      <td>
+          <button className='btn'>
+              <Link to={"/update_issue/"+props.issue._id}>
+                  Update
+              </Link>
+          </button>
+      </td>
+      <td>
+          <button className="btn">
+              <Link to={"/delete_issue/"+props.issue._id}>
+                Delete
+              </Link>
+          </button>
+      </td>
     </tr>
   )
 
