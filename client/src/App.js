@@ -1,13 +1,13 @@
 import {Routes, Route} from 'react-router-dom';
 
-import NavigationBar from './Components/NavigationBar';
-import Footer from './Components/Footer';
-import AddIssue from './Pages/AddIssue';
-import UpdateIssue from './Pages/UpdateIssue';
-import DeleteIssue from './Pages/DeleteIssue';
+import NavigationBar from './components/navigationbar'
+import Footer from './components/footer';
+import AddIssue from './pages/addIssue';
+import UpdateIssue from './pages/updateIssue';
+import DeleteIssue from './pages/deleteIssue';
 
-import Home from './Pages/Home';
-import Archives from './Pages/Archives';
+import Home from './pages/home';
+import Archives from './pages/archives';
 
 
 

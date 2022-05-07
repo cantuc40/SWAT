@@ -12,13 +12,8 @@ export default class UpdateIssue extends Component {
 
     /*
     componentDidMount() {
-
         //Insert GET Request for archives
-
-
-
     }
-
 */
     render() {
         return (

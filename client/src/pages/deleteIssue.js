@@ -39,13 +39,9 @@ export default class DeleteIssue extends Component {
                 description: response.data.description
             })
         })
-
         .catch(error => {
             console.log(error);
         })
-
-
-
     } */
 
 
