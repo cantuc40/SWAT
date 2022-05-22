@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 //Import uri from .env file and connect to the DB
-const uri = process.env.VOID_URI;
+const uri = process.env.MONGO_URI;
 mongoose.connect(uri);
 
 //Connect to DB
@@ -22,8 +22,8 @@ connection.once('open', () =>{
 });
 
 //Import Issue router and use
-const issueRouter = require('./routes/issues');
-app.use('/issues', issueRouter);
+const issueRouter = require('./controllers/issue.controller');
+app.use('/api/issues', issueRouter);
 
 //Listen on port 5000
 app.listen(port, () => {
