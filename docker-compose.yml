@@ -12,7 +12,7 @@ services:
       - ./client/:/usr/src/app
   backend:
     image: swat-server
-    build: ./server/
+    build: ./
     ports:
       - "5000:5000"
     networks:
