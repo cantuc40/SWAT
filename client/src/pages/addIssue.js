@@ -80,13 +80,6 @@ export default class AddIssue extends Component {
         })
     }
 
-    componentDidMount(){
-
-
-    }
-
-
-
     onSubmit = e => {
         e.preventDefault();
 
@@ -103,7 +96,7 @@ export default class AddIssue extends Component {
 
         console.log(newIssue)
 
-        axios.post("http://localhost:5000/issues/add", newIssue)
+        axios.post("http://localhost:5000/api/issues/add", newIssue)
             .then(res => console.log(res.data))
 
         window.location = "/";
