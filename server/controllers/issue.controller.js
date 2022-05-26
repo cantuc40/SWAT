@@ -12,7 +12,7 @@ router.get('/:id', issueService.getIssuebyID);
 router.post('/add', issueService.createIssue);
 
 //Update Issue
-router.put('/:id', issueService.updateIssuebyID);
+router.patch('/:id', issueService.updateIssuebyID);
 
 //Delete Issue
 router.delete('/:id', issueService.deleteIssuebyID);
