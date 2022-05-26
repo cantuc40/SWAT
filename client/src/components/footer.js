@@ -23,7 +23,7 @@ export default class Footer extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
-                    <p className="navbar-brand">&copy; 2021</p>
+                    <p className="navbar-brand">&copy; 2022</p>
                 </div>
             </nav>
         );
