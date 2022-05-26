@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "nodemon": "nodemon server",
-    "run-client": "cd client && npm run start"
-
+    "server": "nodemon server",
+    "client-dev": "cd client && npm run start",
+    "client-build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "install-server": "npm install"
   },
   "keywords": [],
   "author": "",
