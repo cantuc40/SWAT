@@ -1,71 +1,10 @@
 import {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-//import UpdateIssue from '../../Components/UpdateIssue/UpdateIssue';
-//import ViewIssue from './DeleteIssue'
-
-/*
-const Issue = props => {
-    <tr className="table-active">
-        <td>{props.issue.ticket_num}</td>
-        <td>{props.issue.name}</td>
-        <td>{props.issue.project_name}</td>
-        <td>
-            <Link to={'/view_issue/'+props.issue._id}>
-                <button type="button" className="btn btn-primary ">Click</button>
-            </Link>
-        </td>
-        
-    </tr>
-};*/
-
 
 const mystyle = {
     color: "red"
 };
-
-
-
-//Functional React Component
-const Issue = props => (
-    <tr className="table-active">
-      <td>{props.issue.ticket_num}</td>
-      <td>{props.issue.name}</td>
-      <td>{props.issue.project_name}</td>
-      <td>{props.issue.filename}</td>
-      <td>{props.issue.file_location}</td>
-      <td>{props.issue.row}</td>
-      <td>{props.issue.col}</td>
-      <td style = {mystyle}>{props.issue.status}</td>
-      <td>{props.issue.description}</td>
-      <td>
-          <button className='btn'>
-              <Link to={"/update_issue/"+props.issue._id}>
-                  Update
-              </Link>
-          </button>
-      </td>
-      <td>
-          <button className="btn">
-              <Link to={"/delete_issue/"+props.issue._id}>
-                Delete
-              </Link>
-          </button>
-      </td>
-    </tr>
-  )
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export default class Home extends Component {
@@ -75,10 +14,12 @@ export default class Home extends Component {
         this.state = {
             issues: []
         }
+
+        this.deleteIssue = this.deleteIssue.bind(this);
     }
 
     componentDidMount() {
-        axios.get("http://localhost:5000/issues/")
+        axios.get("http://localhost:5000/api/issues/")
         .then(response => {
             this.setState({issues: response.data})
         })
@@ -87,14 +28,39 @@ export default class Home extends Component {
         })
     }
 
+    deleteIssue(id){
+        axios.delete(`http://localhost:5000/api/issues/${id}`)
+        .then(response => {
+            console.log("issue deleted")
+        })
+        .catch(error => {
+            console.log(error)
+        })
+      }
+
+    
+
 
 
 
     //Return all exercises from th mongodb
     issueList() {
-        return this.state.issues.map(currentissue => {
-          return <Issue issue={currentissue} key={currentissue._id}/>;
-        })
+        return this.state.issues.map(issue => (
+            <tr className="table-active">
+                <td>{issue.ticket_num}</td>
+                <td>{issue.name}</td>
+                <td>{issue.project_name}</td>
+                <td>{issue.filename}</td>
+                <td>{issue.file_location}</td>
+                <td>{issue.row}</td>
+                <td>{issue.col}</td>
+                <td style = {mystyle}>{issue.status}</td>
+                <td>{issue.description}</td>
+                <td>
+                    <button className='btn' onClick={() => this.deleteIssue(issue._id)}>Delete</button>
+                </td>
+            </tr>
+        ))
       }
 
 
