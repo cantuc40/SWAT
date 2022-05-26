@@ -1,2 +1,2 @@
 build:
-	docker build -t swat-back .
+	docker build -t swat-server .

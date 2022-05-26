@@ -1,2 +1,2 @@
 build-swat:
-	docker-compose up
+	docker compose up

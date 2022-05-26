@@ -1,2 +1,2 @@
 build:
-	docker build -t swat-front .
+	docker build -t swat-client .
