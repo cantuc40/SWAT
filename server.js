@@ -8,7 +8,7 @@ require('dotenv').config();
 
 //Create middleware and establish port number
 const app = express();
-const port = process.env.PORT || 5000; 
+const port = process.env.PORT || 8080; 
 app.use(cors());
 app.use(express.json());
 
@@ -28,9 +28,9 @@ app.use('/api/issues', issueRouter);
 
 
 if (process.env.NODE_ENV == 'production'){
-    app.use(express.static(path.resolve(__dirname, "../client/build")));
+    app.use(express.static("client/build"));
     app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "../client/build", "index.html"))
+        res.sendFile(path.join(__dirname, "client", "build", "index.html"))
 })
 }
 
