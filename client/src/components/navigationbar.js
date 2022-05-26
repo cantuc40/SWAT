@@ -42,12 +42,6 @@ export default class NavigationBar extends Component {
                         <li className="nav-item">
                             <Link to='/add_issue' className="nav-link">Add Issue</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to='/archives' className="nav-link">Archives</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/archives' className="nav-link">Logout</Link>
-                        </li>
                     </ul>
                 </div>
             </div>
