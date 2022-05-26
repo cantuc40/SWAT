@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
+const path = require('path')
 require('dotenv').config();
 
 
@@ -24,6 +25,14 @@ connection.once('open', () =>{
 //Import Issue router and use
 const issueRouter = require('./controllers/issue.controller');
 app.use('/api/issues', issueRouter);
+
+
+app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"))
+})
+
+
 
 //Listen on port 5000
 app.listen(port, () => {
