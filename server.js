@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 //Import uri from .env file and connect to the DB
-const uri = "mongodb+srv://admin:R753ikQi6TrBdU@voidcluster.dvptqmi.mongodb.net/?retryWrites=true&w=majority"
+const uri = "mongodb+srv://admin:26dALo5ZYBhkjp@swatcluster.a3dmajq.mongodb.net/?retryWrites=true&w=majority"
 //const uri = process.env.MONGO_URI;
 mongoose.connect(uri);
 
