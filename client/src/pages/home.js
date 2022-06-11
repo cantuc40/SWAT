@@ -19,7 +19,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:8080/api/issues")
+        axios.get(`http://localhost:${process.env.PORT}/api/issues`)
         .then(response => {
             this.setState({issues: response.data})
         })
