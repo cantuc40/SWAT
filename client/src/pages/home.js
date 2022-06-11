@@ -19,7 +19,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:5000/api/issues/")
+        axios.get("http://localhost:8080/api/issues")
         .then(response => {
             this.setState({issues: response.data})
         })
@@ -29,7 +29,7 @@ export default class Home extends Component {
     }
 
     deleteIssue(id){
-        axios.delete(`http://localhost:5000/api/issues/${id}`)
+        axios.delete(`http://localhost:8080/api/issues/${id}`)
         .then(response => {
             console.log("issue deleted")
         })
