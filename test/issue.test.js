@@ -1,56 +1,132 @@
-var chai = require('chai')
-var chaiHttp = require('chai-http')
-var server = require('../server');
+const request = require("supertest");
+const mongoose = require("mongoose");
+const app = require("../app");
+require('dotenv').config();
 
-var expect = chai.expect;
-chai.use(chaiHttp);
 
-describe("Issue API (/issues)", function () {
-  describe("Get Issues (GET, '/')", function () {
-    it("should get all issues and return http code 200", function(done){
-      chai.request(server)
-      .get("/issues/")
-      .end(function(err, res){
-        expect(res).to.have.status(200);
-        done();
+
+describe("Issue API Tests", () => {
+
+  beforeAll(() => {
+    let URI = process.env.MONGO_URI;
+    return mongoose.connect(URI);
+  })
+
+  afterAll(() => {
+    return mongoose.connection.close();
+  })
+
+  describe('GET Requests', () => {
+    it('should get all issues and return 200', () => {
+      return request(app)
+      .get("/api/issues/test")
+      .then(response => {
+        expect(response.status).toBe(200)
       })
-    });
-    it("Should return 404 error from incorrect url", function(done){
-      chai.request(server)
-      .get("/issuess/")
-      .end(function(err, res){
-        expect(err).to.have.status(404);
-        done();
+    })
+
+    it('should not return all issues due to incorrect url and return 404', () => {
+      return request(app)
+      .get('/api/iss/test')
+      .then(response => {
+        expect(response.status).toBe(404)
       })
-    });
-  });
-  describe("Get Issues by ID (GET, '/:id')", function () {
-    it("should get an issue by ID and return http code 200", function(done){
-      //Create a test issue
-      //get test issue info
-    });
-    it("Should return 404 error from incorrect url", function(done){
-      //input incorrect issue id
-    });
-    it("Should return 404 error from incorrect ID", function(done){
-      //input incorrect issue id
-    });
-  });
-  describe("Create Issue (POST, '/add')", function () {
-    it("should create an issue and return http code 201", function(done){
-      //Create new Issue
-    });
-    it("Should return error if a required attribute is not inputted", function(done){
-      //Write test here
-    });
-    it("Should return 404 error from incorrect ID", function(){});
-  });
-  describe("Update Issue by ID (PUT, '/update/:id')", function () {
-    it("should update issue by ID and return http code 200", function(done){});
-    it("Should return 404 error from incorrect ID", function(){});
-  });
-  describe("Delete issue by ID (DELETE, '/delete/:id')", function () {
-    it("should delete an issue by ID and return http code 200", function(){});
-    it("Should return 404 from incorrect ID", function(){});
-  });
-});
+    })
+
+    it('should get an issue and return 200', () =>{
+      return request(app)
+      .get("/api/issues/test/62f41d4db291b6df75fed106")
+      .then(response => {
+        expect(response.status).toBe(200)
+      })
+
+    })
+
+    it('should not get an issue due to incorrect url and return 404', () =>{
+      return request(app)
+      .get('/api/iss/test/62f41d4db291b6df75fed106')
+      .then(response => {
+        expect(response.status).toBe(404)
+      })
+    })
+
+    //Fix
+    it('should not get an issue due to incorrect id and return 404', () =>{
+      return request(app)
+      .get('/api/issues/test/62f41d4db291b6df75fed103')
+      .then(response => {
+        expect(response.status).toBe(404)
+      })
+    })
+  })
+
+
+  describe('POST Requests', () => {
+    it('should create an an issue and return 201', () => {
+      const num_test = Math.floor((Math.random() * 10000) + 1);
+      const test_issue = {
+        name: "test",
+        ticket_num: num_test,
+        project_name: "test_project",
+        file_location: "location_test",
+        filename: "filename_test",
+        row: 0,
+        col: 1,
+        status: "test_status",
+        description: "test_description",
+      }
+      return request(app)
+      .post('/api/issues/test/add')
+      .send(test_issue)
+      .set('Accept', 'application/json')
+      .then(response => {
+        expect(response.status).toBe(201)
+      })    
+    })
+
+    //Fix
+    it('should not create an issue due to missing information and return 400', () =>{
+      const test_issue = null;
+      return request(app)
+      .post('/api/issues/test/add')
+      .send(test_issue)
+      .set('Accept', 'application/json')
+      .then(response => {
+        expect(response.status).toBe(400)
+      }) 
+    })
+
+  })
+
+  describe('DELETE Requests', () => {
+    it('should delete an issue and return 200', () =>{
+      return request(app)
+      .delete('/api/issues/test/62f41d4db291b6df75fed106')
+      .then(response => {
+        expect(response.status).toBe(200)
+      })
+    })
+
+    //Fix
+    it('should not delete an issue due to missing id and return 400', () =>{
+      return request(app)
+      .delete('/api/issues/test/')
+      .then(response => {
+        expect(response.status).toBe(400)
+      })
+    })
+  })
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+})
