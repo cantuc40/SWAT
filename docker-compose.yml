@@ -1,18 +1,18 @@
 version: "3.9"
 services:
   frontend:
-    image: swat-client
-    build: ./client/
+    image: swat-frontend
+    build: ./src/frontend
     stdin_open: true
     ports:
       - "3000:3000"
     networks:
       - swat-app
     volumes:
-      - ./client/:/usr/src/app
-  backend:
-    image: swat-server
-    build: ./
+      - ./src/frontend:/usr/src/app
+  issueService:
+    image: swat-issue-api
+    build: ./src/issueService/
     ports:
       - "8080:8080"
     networks:
