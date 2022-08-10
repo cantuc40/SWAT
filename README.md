@@ -19,7 +19,7 @@ Once node.js and Docker are installed, git clone the repository and make the fil
 ```
 git clone https://github.com/cantuc40/SWAT.git
 cd SWAT
-make build-swat
+docker compose up
 ```
 Keep in mind that it will take a while for the images to build, so be patient.
 
