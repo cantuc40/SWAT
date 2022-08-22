@@ -2,7 +2,7 @@
 
 # SWAT
 
-SWAT is a web application built on a MERN stack that allows the user to manage and track various faults they find in their working projects. As of November 20 2021, the Project is currently in development.
+SWAT is a web application built on a MERN stack that allows the user to manage and track various faults they find in their working projects. As of August 01 2022, the Project is currently in development.
 
 ## Getting Started and Prerequisites
 
@@ -19,19 +19,10 @@ Once node.js and Docker are installed, git clone the repository and make the fil
 ```
 git clone https://github.com/cantuc40/SWAT.git
 cd SWAT
-make build-swat
+docker compose up
 ```
 Keep in mind that it will take a while for the images to build, so be patient.
 
 
 
-### Branches
 
-* master:
-* frontend_dev:
-
-## Known Issues
-
-The following issues are present in the project:
-
-* View issue, add issue and update issue components have yet to be started
